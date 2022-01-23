@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {App} from './App';
-import { store } from './_helpers';
+import {App} from './pages/app';
+import { store } from './pages/app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 // setup fake backend
-import { configureFakeBackend } from './_helpers';
+import { configureFakeBackend } from './helpers';
 configureFakeBackend();
 
 ReactDOM.render(
@@ -18,7 +18,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want your _helpers to work offline and load faster, you can change
+// If you want your helpers to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
