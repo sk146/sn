@@ -2,11 +2,11 @@ import React, {useEffect} from 'react';
 import {Router, Route, Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {history} from '../../helpers';
-import {PrivateRoute} from '../../components';
-import {HomePage} from '../home';
-import {LoginPage} from '../login';
-import {RegisterPage} from '../register';
+import {history} from '../helpers';
+import {PrivateRoute} from '../components';
+import {Dashboard} from '../pages/dashboard';
+import {LoginPage} from '../pages/auth/login';
+import {RegisterPage} from '../pages/auth/register';
 import {alertActions} from './alert/alert.actions.js';
 import './App.css';
 
@@ -27,7 +27,7 @@ const App = ({alert, clearAlerts}) => {
                     }
                     <Router history={history}>
                         <Switch>
-                            <PrivateRoute exact path="/" component={HomePage}/>
+                            <PrivateRoute exact path="/" component={Dashboard}/>
                             <Route path="/login" component={LoginPage}/>
                             <Route path="/register" component={RegisterPage}/>
                             <Redirect from="*" to="/"/>

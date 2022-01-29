@@ -3,7 +3,7 @@ import {userActions} from '../../_actions';
 import {useEffect} from 'react';
 
 
-const HomePage = ({getUsers, users, ...props}) => {
+const Dashboard = ({getUsers, users, ...props}) => {
     useEffect(() => {
         getUsers();
     }, []);
@@ -22,5 +22,5 @@ const actionCreators = {
     deleteUser: userActions.delete
 }
 
-const connectedHomePage = connect(mapState, actionCreators)(HomePage);
-export { connectedHomePage as HomePage };
+const connectedHomePage = connect(mapState, actionCreators)(Dashboard);
+export { connectedHomePage as Dashboard };

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {App} from './pages/app';
-import { store } from './pages/app/store';
+import {App} from './core';
+import { store } from './core/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 // setup fake backend
