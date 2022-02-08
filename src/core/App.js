@@ -3,12 +3,14 @@ import {Router, Route, Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {history} from '../helpers';
-import {PrivateRoute} from '../components';
+import {PrivateRoute} from '../template';
 import {Dashboard} from '../pages/dashboard';
 import {LoginPage} from '../pages/auth/login';
-import {RegisterPage} from '../pages/auth/register';
 import {alertActions} from './alert/alert.actions.js';
 import './App.css';
+import {RegisterPage} from '../pages/auth/register';
+import {UsersList} from '../pages/users/users-list';
+import {UserCreationForm} from '../pages/users/user-creation-form';
 
 
 const App = ({alert, clearAlerts}) => {
@@ -30,6 +32,8 @@ const App = ({alert, clearAlerts}) => {
                             <PrivateRoute exact path="/" component={Dashboard}/>
                             <Route path="/login" component={LoginPage}/>
                             <Route path="/register" component={RegisterPage}/>
+                            <PrivateRoute exact path="/create-user" component={UserCreationForm}/>
+                            <PrivateRoute exact path="/users" component={UsersList}/>
                             <Redirect from="*" to="/"/>
                         </Switch>
                     </Router>

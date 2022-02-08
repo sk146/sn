@@ -1,14 +1,18 @@
 import { connect } from 'react-redux';
-import {userActions} from '../../_actions';
+import {userActions} from './action';
 import {useEffect} from 'react';
+import Link from 'react-router-dom/es/Link';
 
 
 const Dashboard = ({getUsers, users, ...props}) => {
     useEffect(() => {
         getUsers();
     }, []);
-    console.log(users)
-    return <div>Hello world! HomePage</div>;
+    console.log(users);
+    return <div>
+        <Link to="/create-user">Create user</Link>
+        <Link to="/users">Users</Link>
+    </div>;
 };
 
 function mapState(state) {
