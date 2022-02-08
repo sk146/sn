@@ -1,13 +1,12 @@
 import {userService} from '../../../services';
-import {history} from '../../../helpers';
-import {alertActions} from './alert/alert.actions';
+import {alertActions} from '../../auth/register/alert/alert.actions.js';
 import {userConstants} from './constant';
 
 export const registerActions = {
-    register,
+    createUser,
 };
 
-function register(user) {
+function createUser(user) {
     return dispatch => {
         dispatch(request(user));
 
@@ -15,8 +14,7 @@ function register(user) {
             .then(
                 user => {
                     dispatch(success());
-                    history.push('/login');
-                    dispatch(alertActions.success('Registration successful'));
+                    dispatch(alertActions.success('Create user successful'));
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -25,7 +23,7 @@ function register(user) {
             );
     };
 
-    function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
-    function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
+    function request(user) { return { type: userConstants.CREATE_USER_REQUEST, user } }
+    function success(user) { return { type: userConstants.CREATE_USER_SUCCESS, user } }
+    function failure(error) { return { type: userConstants.CREATE_USER_FAILURE, error } }
 }
